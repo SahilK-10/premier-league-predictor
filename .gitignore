@@ -1,0 +1,7 @@
+# Virtual environment
+.venv/
+
+# Environment variables / secrets
+.env
+
+premier-league-predictor.zip
