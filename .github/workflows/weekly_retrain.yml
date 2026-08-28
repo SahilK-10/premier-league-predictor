@@ -1,0 +1,57 @@
+name: Weekly Retrain
+
+on:
+  schedule:
+    # Every Tuesday 08:00 UTC (~9-10am UK time depending on DST) —
+    # safely after the latest possible Monday night kickoff finishes.
+    - cron: "0 8 * * 2"
+  workflow_dispatch: {}  # lets you also trigger it manually from the GitHub UI
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Ingest latest results
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: uv run python -m ingest.football_data_client --season 2026
+
+      - name: Clean matches
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: uv run python -m clean.clean_matches --season 2026
+
+      - name: Rebuild features
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: uv run python -m features.feature_engineering --start-season 2024 --end-season 2026
+
+      - name: Retrain Dixon-Coles model
+        run: uv run python -m models.poisson_dixon_coles train --start-season 2024 --end-season 2026 --model-name 2024_2026
+
+      - name: Commit updated data + model artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/processed models/artifacts
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "chore: weekly auto-retrain [skip ci]"
+          git push
