@@ -5,3 +5,6 @@
 .env
 
 premier-league-predictor.zip
+
+node_modules/
+.next/
