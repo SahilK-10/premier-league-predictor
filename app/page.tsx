@@ -142,38 +142,81 @@ function OverviewPage({ matches, gameweek, onSelect }: { matches: Match[]; gamew
 }
 
 // --------------------------------------------------------------------------
-// History > Performance (existing chart, wired to /accuracy)
+// History > Performance (wired to /accuracy and /accuracy/history)
 // --------------------------------------------------------------------------
 
-// Accuracy-over-time chart data has no real backing table yet
-// (accuracy_snapshots is empty in Supabase) — kept as illustrative
-// placeholder until that table is populated. The three headline metric
-// numbers below the chart ARE live from /accuracy.
-const accuracySeries=[{week:"W1",model:38,bookmaker:41},{week:"W2",model:42,bookmaker:44},{week:"W3",model:40,bookmaker:43},{week:"W4",model:46,bookmaker:45},{week:"W5",model:44,bookmaker:46},{week:"W6",model:48,bookmaker:47},{week:"W7",model:47,bookmaker:48},{week:"W8",model:50,bookmaker:48}]
+type AccuracyHistoryPoint = {
+  gameweek: number
+  accuracy: number
+  correct: number
+  total: number
+}
 
 function PerformancePanel({ modelAccuracy, logLoss, matchesEvaluated }: { modelAccuracy: number | null; logLoss: number | null; matchesEvaluated: number | null }) {
+  const [historyData, setHistoryData] = useState<AccuracyHistoryPoint[]>([])
+  const [loadingHistory, setLoadingHistory] = useState(true)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadHistory() {
+      setLoadingHistory(true)
+      try {
+        const res = await fetch(`${API_BASE}/accuracy/history`)
+        if (!res.ok) throw new Error()
+        const data = await res.json()
+        if (cancelled) return
+        setHistoryData(data.gameweeks ?? [])
+      } catch {
+        if (!cancelled) setHistoryData([])
+      } finally {
+        if (!cancelled) setLoadingHistory(false)
+      }
+    }
+
+    loadHistory()
+    return () => { cancelled = true }
+  }, [])
+
+  // Transform for Recharts: { week: "GW2", model: 42 }
+  const chartData = historyData.map(point => ({
+    week: `GW${point.gameweek}`,
+    model: point.accuracy,
+  }))
+
+  const hasData = chartData.length > 0
+
   return (
     <section className="performance" id="performance">
       <div className="performance-copy">
         <div className="eyebrow">MODEL PERFORMANCE</div>
         <h2>Gets sharper<br /><em>with every week.</em></h2>
-        <p>We backtest our predictions against actual results and bookmaker consensus. No black box — just a model that earns its edge.</p>
+        <p>We backtest our predictions against actual results. No black box — just a model that earns its edge.</p>
       </div>
       <div className="chart-panel">
         <div className="chart-top">
           <span>ACCURACY OVER TIME</span>
-          <div><b><i className="dot model" /> Model</b><b><i className="dot book" /> Bookmaker</b></div>
+          <div><b><i className="dot model" /> Model</b></div>
         </div>
         <div className="chart">
-          <ResponsiveContainer width="100%" height={230}>
-            <LineChart data={accuracySeries} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
-              <XAxis dataKey="week" stroke="var(--muted)" tickLine={false} axisLine={false} />
-              <YAxis domain={[30, 55]} stroke="var(--muted)" tickLine={false} axisLine={false} tickFormatter={v => `${v}%`} />
-              <Tooltip contentStyle={{ background: "#171722", border: "1px solid #343342", borderRadius: 8 }} formatter={(v) => `${v}%`} />
-              <Line type="monotone" dataKey="model" stroke="var(--accent)" strokeWidth={3} dot={false} />
-              <Line type="monotone" dataKey="bookmaker" stroke="var(--muted)" strokeWidth={2} strokeDasharray="4 4" dot={false} />
-            </LineChart>
-          </ResponsiveContainer>
+          {loadingHistory ? (
+            <div style={{ height: 230, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--muted)" }}>
+              Loading history…
+            </div>
+          ) : !hasData ? (
+            <div style={{ height: 230, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--muted)", textAlign: "center", padding: "0 2rem" }}>
+              No completed gameweeks yet. Once matches finish, accuracy will appear here.
+            </div>
+          ) : (
+            <ResponsiveContainer width="100%" height={230}>
+              <LineChart data={chartData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
+                <XAxis dataKey="week" stroke="var(--muted)" tickLine={false} axisLine={false} />
+                <YAxis domain={[30, 100]} stroke="var(--muted)" tickLine={false} axisLine={false} tickFormatter={v => `${v}%`} />
+                <Tooltip contentStyle={{ background: "#171722", border: "1px solid #343342", borderRadius: 8 }} formatter={(v) => `${v}%`} />
+                <Line type="monotone" dataKey="model" stroke="var(--accent)" strokeWidth={3} dot={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          )}
         </div>
         <div className="metrics">
           <div><strong>{modelAccuracy !== null ? pct(modelAccuracy) : "—"}</strong><span>Model accuracy</span></div>

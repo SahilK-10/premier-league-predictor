@@ -8,3 +8,16 @@ premier-league-predictor.zip
 
 node_modules/
 .next/
+
+# Generated artifacts / cached outputs
+*.json
+*.csv
+data/processed/*.csv
+models/artifacts/*.json
+models/artifacts/*.csv
+__pycache__/
+*.pyc
+# Next.js type declarations
+next-env.d.ts
+
+# Personal scripts

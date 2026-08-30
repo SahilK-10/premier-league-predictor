@@ -1264,6 +1264,7 @@ def train_model(
     end_season: int | None = None,
     model_name: str | None = None,
     promoted_aware: bool = True,
+    filter_to_teams: list[str] | None = None,
 ) -> Path:
     feature_file = get_feature_file(
         start_season,
@@ -1354,6 +1355,30 @@ def train_model(
         raise ValueError(
             "No completed matches found "
             "in the training data."
+        )
+
+    # NOTE: filter_to_teams parameter is deprecated and ignored.
+    #
+    # The model trains on all teams in the combined training file, which includes:
+    # 1. Real Premier League matches for all teams that played in the PL (2024-2026)
+    # 2. Normalized Championship priors for promoted teams (Ipswich, Coventry, Hull)
+    #    when they played in the Championship
+    #
+    # This results in ~49 teams total (20 current PL + 29 Championship opponents),
+    # but this is NOT overfitting - it's the correct approach because:
+    # - Promoted teams (Coventry, Hull) have only 1 PL match each in 2026
+    # - Without their Championship history, their parameters would be undefined
+    # - Championship opponents (Preston, Norwich, etc.) act as "training anchors"
+    #   that help estimate promoted teams' attack/defence strengths
+    # - We only predict matches between the 20 current PL teams
+    # - The Championship opponents' parameters are learned but never used in predictions
+    #
+    # The weighted effective match count and L2 regularization prevent overfitting.
+    if filter_to_teams is not None:
+        logger.warning(
+            "filter_to_teams parameter is deprecated and will be ignored. "
+            "The model trains on all teams in the combined training file to "
+            "preserve Championship priors for promoted teams."
         )
 
     if "source" in matches.columns:

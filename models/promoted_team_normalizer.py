@@ -46,10 +46,13 @@ logger = logging.getLogger(__name__)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "processed"
 
+# Teams that need Championship priors because they have very few PL matches
+# ONLY include teams with < 10 PL matches in the training data
+# Teams with 30+ PL matches should rely on their PL data alone
 PROMOTED_TEAMS = {
-    "Ipswich Town FC",
-    "Coventry City FC",
-    "Hull City AFC",
+    "Coventry City FC",  # 1 PL match - needs Championship priors
+    "Hull City AFC",     # 1 PL match - needs Championship priors
+    # "Ipswich Town FC" removed - has 39 PL matches (sufficient data!)
 }
 
 DEFAULT_PL_FEATURES_PATH = DATA_DIR / "features_2024_2026.csv"

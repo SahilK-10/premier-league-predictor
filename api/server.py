@@ -202,18 +202,20 @@ def get_model(season: int, model_name: str = DEFAULT_MODEL_NAME) -> DixonColesMo
 def prediction_to_payload(model: DixonColesModel, home_team: str, away_team: str) -> dict:
     prediction = model.predict(home_team, away_team)
 
-    # Build a small scoreline probability grid (0-4 goals each side) so the
-    # frontend can render a heatmap/table without extra computation.
-    from scipy.stats import poisson as poisson_dist
-
+    # BUGFIX: Use Dixon-Coles corrected scoreline matrix instead of independent Poisson.
+    # The model.scoreline_matrix() method applies the Dixon-Coles correction factor (τ)
+    # to low-scoring outcomes (0-0, 0-1, 1-0, 1-1), which is the whole point of using
+    # Dixon-Coles over plain Poisson. The previous code used independent Poisson
+    # (p_home × p_away), which ignored this correction.
     max_grid_goals = 4
     scoreline_probabilities: dict[str, float] = {}
 
+    # Get the Dixon-Coles corrected probability matrix
+    matrix = model.scoreline_matrix(home_team, away_team, max_goals=max_grid_goals)
+
     for h in range(max_grid_goals + 1):
         for a in range(max_grid_goals + 1):
-            p_home = poisson_dist.pmf(h, prediction.expected_home_goals)
-            p_away = poisson_dist.pmf(a, prediction.expected_away_goals)
-            scoreline_probabilities[f"{h}-{a}"] = round(float(p_home * p_away), 4)
+            scoreline_probabilities[f"{h}-{a}"] = round(float(matrix[h, a]), 4)
 
     return {
         "home_team": team_payload(home_team),
@@ -359,6 +361,16 @@ def accuracy(season: int = Query(default=2025)):
     with open(summary_path, "r") as f:
         summary = json.load(f)
 
+    # BUGFIX: Load matches_evaluated count from backtest predictions CSV
+    matches_evaluated = None
+    predictions_path = MODEL_DIR / f"backtest_predictions_{season}.csv"
+    if predictions_path.exists():
+        try:
+            predictions_df = pd.read_csv(predictions_path)
+            matches_evaluated = len(predictions_df)
+        except Exception as e:
+            logger.warning("Could not load matches_evaluated from %s: %s", predictions_path, e)
+
     return {
         "season": season,
         "model_accuracy": summary.get("accuracy"),
@@ -366,7 +378,7 @@ def accuracy(season: int = Query(default=2025)):
         "model_brier_score": summary.get("brier_score"),
         # Bookmaker baseline isn't computed anywhere yet in this project.
         "bookmaker_accuracy": None,
-        "matches_evaluated": None,
+        "matches_evaluated": matches_evaluated,
     }
 
 
@@ -568,3 +580,65 @@ def history_gameweek(gameweek: int, season: int = Query(default=CURRENT_SEASON_S
             "scoreline_accuracy": round(scoreline_hits / len(results), 4) if results else None,
         },
     }
+
+
+@app.get("/accuracy/history")
+def accuracy_history(season: int = Query(default=CURRENT_SEASON_START_YEAR)):
+    """
+    Returns per-gameweek accuracy progression for the accuracy-over-time chart.
+
+    Each gameweek uses a leave-one-out model (trained without that gameweek's
+    results) to ensure no hindsight bias.
+
+    Returns empty list early in a season when no gameweeks are complete yet.
+    """
+    frame = load_combined_features()
+    available = completed_gameweeks(frame, season)
+
+    if not available:
+        return {"season": season, "gameweeks": []}
+
+    history = []
+    for gameweek in available:
+        model = get_leave_one_gameweek_out_model(gameweek)
+
+        rows = frame[
+            (frame["season_start_year"] == season) & (frame["gameweek"] == gameweek)
+        ]
+
+        outcome_hits = 0
+        total = 0
+
+        for _, row in rows.iterrows():
+            home_team = str(row["home_team"])
+            away_team = str(row["away_team"])
+            actual_home_goals = int(row["home_goals"])
+            actual_away_goals = int(row["away_goals"])
+
+            prediction = model.predict(home_team, away_team)
+
+            predicted_outcome = outcome_from_probs(
+                prediction.home_win_probability,
+                prediction.draw_probability,
+                prediction.away_win_probability,
+            )
+            actual_outcome = outcome_from_goals(actual_home_goals, actual_away_goals)
+
+            if predicted_outcome == actual_outcome:
+                outcome_hits += 1
+            total += 1
+
+        accuracy_pct = round((outcome_hits / total * 100), 1) if total > 0 else 0
+
+        # Sequential rolling accuracy: each GW's prediction is evaluated when
+        # results come in, and accumulated for the chart.
+        history.append({
+            "gameweek": gameweek,
+            "accuracy": accuracy_pct,
+            "correct": outcome_hits,
+            "total": total,
+            "predicted_fixtures": total,
+            "results_in": total,
+        })
+
+    return {"season": season, "gameweeks": history}
