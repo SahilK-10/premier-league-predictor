@@ -1,0 +1,370 @@
+home_team,away_team,home_goals,away_goals,season_start_year,kickoff_at,source_match_id,source,training_weight,outcome
+Norwich City FC,Hull City AFC,2,1,2023,2023-08-05 14:00:00+00:00,436679,normalized_championship_prior,0.1452417661050149,Home Win
+Leicester City FC,Coventry City FC,2,1,2023,2023-08-06 11:00:00+00:00,436684,normalized_championship_prior,0.1452417661050149,Home Win
+Sunderland AFC,Ipswich Town FC,1,2,2023,2023-08-06 16:00:00+00:00,436686,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Middlesbrough FC,3,0,2023,2023-08-12 11:30:00+00:00,436689,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Sheffield Wednesday FC,4,2,2023,2023-08-12 14:00:00+00:00,436694,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Stoke City FC,2,0,2023,2023-08-12 14:00:00+00:00,436695,normalized_championship_prior,0.1452417661050149,Home Win
+Blackburn Rovers FC,Hull City AFC,1,2,2023,2023-08-19 14:00:00+00:00,436700,normalized_championship_prior,0.1452417661050149,Away Win
+Queens Park Rangers FC,Ipswich Town FC,0,1,2023,2023-08-19 14:00:00+00:00,436707,normalized_championship_prior,0.1452417661050149,Away Win
+Swansea City AFC,Coventry City FC,1,1,2023,2023-08-19 14:00:00+00:00,436710,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Bristol City FC,1,1,2023,2023-08-25 18:30:00+00:00,436718,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Sunderland AFC,0,0,2023,2023-08-26 14:00:00+00:00,436713,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Leeds United FC,3,4,2023,2023-08-26 14:00:00+00:00,436719,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Watford FC,3,3,2023,2023-09-02 14:00:00+00:00,436725,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Cardiff City FC,3,2,2023,2023-09-02 14:00:00+00:00,436727,normalized_championship_prior,0.1452417661050149,Home Win
+Leicester City FC,Hull City AFC,0,1,2023,2023-09-02 14:00:00+00:00,436729,normalized_championship_prior,0.1452417661050149,Away Win
+Hull City AFC,Coventry City FC,1,1,2023,2023-09-15 18:45:00+00:00,436742,normalized_championship_prior,0.1452417661050149,Draw
+Sheffield Wednesday FC,Ipswich Town FC,0,1,2023,2023-09-16 14:00:00+00:00,436746,normalized_championship_prior,0.1452417661050149,Away Win
+Cardiff City FC,Coventry City FC,3,2,2023,2023-09-19 18:45:00+00:00,436748,normalized_championship_prior,0.1452417661050149,Home Win
+Southampton FC,Ipswich Town FC,0,1,2023,2023-09-19 18:45:00+00:00,436749,normalized_championship_prior,0.1452417661050149,Away Win
+Hull City AFC,Leeds United FC,0,0,2023,2023-09-20 18:45:00+00:00,436757,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Blackburn Rovers FC,4,3,2023,2023-09-23 14:00:00+00:00,436763,normalized_championship_prior,0.1452417661050149,Home Win
+Stoke City FC,Hull City AFC,1,3,2023,2023-09-24 11:00:00+00:00,436768,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Huddersfield Town AFC,1,1,2023,2023-09-25 19:00:00+00:00,436761,normalized_championship_prior,0.1452417661050149,Draw
+Huddersfield Town AFC,Ipswich Town FC,1,1,2023,2023-09-30 14:00:00+00:00,436777,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Plymouth Argyle FC,1,1,2023,2023-09-30 14:00:00+00:00,436778,normalized_championship_prior,0.1452417661050149,Draw
+Queens Park Rangers FC,Coventry City FC,1,3,2023,2023-09-30 14:00:00+00:00,436781,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Hull City AFC,3,0,2023,2023-10-03 18:45:00+00:00,436785,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,Blackburn Rovers FC,1,0,2023,2023-10-04 18:45:00+00:00,436790,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,Norwich City FC,1,1,2023,2023-10-07 14:00:00+00:00,436798,normalized_championship_prior,0.1452417661050149,Draw
+Millwall FC,Hull City AFC,2,2,2023,2023-10-07 14:00:00+00:00,436799,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Preston North End FC,4,2,2023,2023-10-07 14:00:00+00:00,436801,normalized_championship_prior,0.1452417661050149,Home Win
+Bristol City FC,Coventry City FC,1,0,2023,2023-10-21 14:00:00+00:00,436808,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Southampton FC,1,2,2023,2023-10-21 14:00:00+00:00,436812,normalized_championship_prior,0.1452417661050149,Away Win
+Birmingham City FC,Hull City AFC,0,2,2023,2023-10-25 18:45:00+00:00,436825,normalized_championship_prior,0.1452417661050149,Away Win
+Bristol City FC,Ipswich Town FC,0,1,2023,2023-10-25 18:45:00+00:00,436826,normalized_championship_prior,0.1452417661050149,Away Win
+Rotherham United FC,Coventry City FC,2,0,2023,2023-10-25 18:45:00+00:00,436829,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Preston North End FC,1,0,2023,2023-10-28 14:00:00+00:00,436838,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Plymouth Argyle FC,3,2,2023,2023-10-28 14:00:00+00:00,436839,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,West Bromwich Albion FC,0,2,2023,2023-10-30 20:00:00+00:00,436834,normalized_championship_prior,0.1452417661050149,Away Win
+Birmingham City FC,Ipswich Town FC,2,2,2023,2023-11-04 15:00:00+00:00,436843,normalized_championship_prior,0.1452417661050149,Draw
+Preston North End FC,Coventry City FC,3,2,2023,2023-11-04 15:00:00+00:00,436850,normalized_championship_prior,0.1452417661050149,Home Win
+West Bromwich Albion FC,Hull City AFC,3,1,2023,2023-11-04 15:00:00+00:00,436854,normalized_championship_prior,0.1452417661050149,Home Win
+Rotherham United FC,Ipswich Town FC,2,2,2023,2023-11-07 20:00:00+00:00,436815,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Stoke City FC,0,0,2023,2023-11-11 15:00:00+00:00,436858,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Huddersfield Town AFC,1,0,2023,2023-11-11 15:00:00+00:00,436862,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Swansea City AFC,3,2,2023,2023-11-11 15:00:00+00:00,436863,normalized_championship_prior,0.1452417661050149,Home Win
+Millwall FC,Coventry City FC,0,3,2023,2023-11-25 15:00:00+00:00,436869,normalized_championship_prior,0.1452417661050149,Away Win
+Swansea City AFC,Hull City AFC,2,2,2023,2023-11-25 15:00:00+00:00,436877,normalized_championship_prior,0.1452417661050149,Draw
+West Bromwich Albion FC,Ipswich Town FC,2,0,2023,2023-11-25 17:30:00+00:00,436878,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,Plymouth Argyle FC,1,0,2023,2023-11-28 19:45:00+00:00,436880,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Rotherham United FC,4,1,2023,2023-11-28 19:45:00+00:00,436883,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Millwall FC,3,1,2023,2023-11-29 20:00:00+00:00,436888,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Watford FC,1,2,2023,2023-12-02 15:00:00+00:00,436895,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Coventry City FC,2,1,2023,2023-12-02 15:00:00+00:00,436896,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,Birmingham City FC,2,0,2023,2023-12-08 20:00:00+00:00,436906,normalized_championship_prior,0.1452417661050149,Home Win
+Middlesbrough FC,Ipswich Town FC,0,2,2023,2023-12-09 15:00:00+00:00,436907,normalized_championship_prior,0.1452417661050149,Away Win
+Queens Park Rangers FC,Hull City AFC,2,0,2023,2023-12-09 15:00:00+00:00,436912,normalized_championship_prior,0.1452417661050149,Home Win
+Watford FC,Ipswich Town FC,1,2,2023,2023-12-12 19:45:00+00:00,436917,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Southampton FC,1,1,2023,2023-12-13 19:45:00+00:00,436922,normalized_championship_prior,0.1452417661050149,Draw
+Middlesbrough FC,Hull City AFC,1,2,2023,2023-12-13 20:00:00+00:00,436923,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Norwich City FC,2,2,2023,2023-12-16 12:30:00+00:00,436932,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Cardiff City FC,3,0,2023,2023-12-16 15:00:00+00:00,436931,normalized_championship_prior,0.1452417661050149,Home Win
+Leeds United FC,Coventry City FC,1,1,2023,2023-12-16 15:00:00+00:00,436933,normalized_championship_prior,0.1452417661050149,Draw
+Bristol City FC,Hull City AFC,3,2,2023,2023-12-22 19:45:00+00:00,436941,normalized_championship_prior,0.1452417661050149,Home Win
+Leeds United FC,Ipswich Town FC,4,0,2023,2023-12-23 12:30:00+00:00,436943,normalized_championship_prior,0.1452417661050149,Home Win
+Sunderland AFC,Coventry City FC,0,3,2023,2023-12-23 15:00:00+00:00,436939,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Sheffield Wednesday FC,2,0,2023,2023-12-26 15:00:00+00:00,436953,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Sunderland AFC,0,1,2023,2023-12-26 15:00:00+00:00,436958,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Leicester City FC,1,1,2023,2023-12-26 19:45:00+00:00,436959,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Swansea City AFC,2,2,2023,2023-12-29 19:45:00+00:00,436965,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Blackburn Rovers FC,3,2,2023,2023-12-29 19:45:00+00:00,436970,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Queens Park Rangers FC,0,0,2023,2023-12-29 19:45:00+00:00,436971,normalized_championship_prior,0.1452417661050149,Draw
+Middlesbrough FC,Coventry City FC,1,3,2023,2024-01-01 15:00:00+00:00,436978,normalized_championship_prior,0.1452417661050149,Away Win
+Stoke City FC,Ipswich Town FC,0,0,2023,2024-01-01 15:00:00+00:00,436985,normalized_championship_prior,0.1452417661050149,Draw
+Sheffield Wednesday FC,Hull City AFC,3,1,2023,2024-01-01 17:15:00+00:00,436984,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Norwich City FC,1,2,2023,2024-01-12 20:00:00+00:00,436994,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Leicester City FC,3,1,2023,2024-01-13 12:30:00+00:00,436989,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Sunderland AFC,2,1,2023,2024-01-13 17:30:00+00:00,436995,normalized_championship_prior,0.1452417661050149,Home Win
+Sunderland AFC,Hull City AFC,0,1,2023,2024-01-19 20:00:00+00:00,436999,normalized_championship_prior,0.1452417661050149,Away Win
+Sheffield Wednesday FC,Coventry City FC,1,2,2023,2024-01-20 15:00:00+00:00,437008,normalized_championship_prior,0.1452417661050149,Away Win
+Leicester City FC,Ipswich Town FC,1,1,2023,2024-01-22 20:00:00+00:00,437004,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Bristol City FC,2,2,2023,2024-01-30 19:45:00+00:00,437014,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Millwall FC,1,0,2023,2024-02-03 15:00:00+00:00,437028,normalized_championship_prior,0.1452417661050149,Home Win
+Norwich City FC,Coventry City FC,2,1,2023,2024-02-03 15:00:00+00:00,437029,normalized_championship_prior,0.1452417661050149,Home Win
+Preston North End FC,Ipswich Town FC,3,2,2023,2024-02-03 15:00:00+00:00,437030,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,West Bromwich Albion FC,2,2,2023,2024-02-10 12:30:00+00:00,437043,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Swansea City AFC,0,1,2023,2024-02-10 15:00:00+00:00,437042,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Millwall FC,2,1,2023,2024-02-11 12:00:00+00:00,437038,normalized_championship_prior,0.1452417661050149,Home Win
+Rotherham United FC,Hull City AFC,1,2,2023,2024-02-13 19:45:00+00:00,437051,normalized_championship_prior,0.1452417661050149,Away Win
+Plymouth Argyle FC,Coventry City FC,2,2,2023,2024-02-14 19:45:00+00:00,437055,normalized_championship_prior,0.1452417661050149,Draw
+Millwall FC,Ipswich Town FC,0,4,2023,2024-02-14 20:00:00+00:00,437053,normalized_championship_prior,0.1452417661050149,Away Win
+Huddersfield Town AFC,Hull City AFC,1,2,2023,2024-02-17 15:00:00+00:00,437062,normalized_championship_prior,0.1452417661050149,Away Win
+Stoke City FC,Coventry City FC,0,1,2023,2024-02-17 15:00:00+00:00,437068,normalized_championship_prior,0.1452417661050149,Away Win
+Swansea City AFC,Ipswich Town FC,1,2,2023,2024-02-17 15:00:00+00:00,437069,normalized_championship_prior,0.1452417661050149,Away Win
+Southampton FC,Hull City AFC,1,2,2023,2024-02-20 19:45:00+00:00,437016,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Rotherham United FC,4,3,2023,2024-02-20 19:45:00+00:00,437017,normalized_championship_prior,0.1452417661050149,Home Win
+Coventry City FC,Preston North End FC,0,3,2023,2024-02-23 19:45:00+00:00,437074,normalized_championship_prior,0.1452417661050149,Away Win
+Hull City AFC,West Bromwich Albion FC,1,1,2023,2024-02-24 12:30:00+00:00,437078,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Birmingham City FC,3,1,2023,2024-02-24 15:00:00+00:00,437079,normalized_championship_prior,0.1452417661050149,Home Win
+West Bromwich Albion FC,Coventry City FC,2,1,2023,2024-03-01 20:00:00+00:00,437094,normalized_championship_prior,0.1452417661050149,Home Win
+Plymouth Argyle FC,Ipswich Town FC,0,2,2023,2024-03-02 15:00:00+00:00,437089,normalized_championship_prior,0.1452417661050149,Away Win
+Preston North End FC,Hull City AFC,0,0,2023,2024-03-02 15:00:00+00:00,437090,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Rotherham United FC,5,0,2023,2024-03-05 19:45:00+00:00,437097,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Birmingham City FC,1,1,2023,2024-03-05 19:45:00+00:00,437098,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Bristol City FC,3,2,2023,2024-03-05 20:00:00+00:00,437099,normalized_championship_prior,0.1452417661050149,Home Win
+Cardiff City FC,Ipswich Town FC,2,1,2023,2024-03-09 12:30:00+00:00,437109,normalized_championship_prior,0.1452417661050149,Home Win
+Watford FC,Coventry City FC,1,2,2023,2024-03-09 15:00:00+00:00,437112,normalized_championship_prior,0.1452417661050149,Away Win
+Hull City AFC,Leicester City FC,2,2,2023,2024-03-09 15:00:00+00:00,437114,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Sheffield Wednesday FC,6,0,2023,2024-03-16 15:00:00+00:00,437123,normalized_championship_prior,0.1452417661050149,Home Win
+Huddersfield Town AFC,Coventry City FC,1,3,2023,2024-03-29 15:00:00+00:00,437137,normalized_championship_prior,0.1452417661050149,Away Win
+Hull City AFC,Stoke City FC,0,2,2023,2024-03-29 15:00:00+00:00,437138,normalized_championship_prior,0.1452417661050149,Away Win
+Blackburn Rovers FC,Ipswich Town FC,0,1,2023,2024-03-29 17:30:00+00:00,437131,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Cardiff City FC,1,2,2023,2024-04-01 14:00:00+00:00,437145,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Southampton FC,3,2,2023,2024-04-01 16:30:00+00:00,437147,normalized_championship_prior,0.1452417661050149,Home Win
+Leeds United FC,Hull City AFC,3,1,2023,2024-04-01 19:00:00+00:00,437148,normalized_championship_prior,0.1452417661050149,Home Win
+Norwich City FC,Ipswich Town FC,1,0,2023,2024-04-06 11:30:00+00:00,437163,normalized_championship_prior,0.1452417661050149,Home Win
+Cardiff City FC,Hull City AFC,1,3,2023,2024-04-06 14:00:00+00:00,437157,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Leeds United FC,2,1,2023,2024-04-06 14:00:00+00:00,437158,normalized_championship_prior,0.1452417661050149,Home Win
+Southampton FC,Coventry City FC,2,1,2023,2024-04-09 18:45:00+00:00,437168,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Middlesbrough FC,2,2,2023,2024-04-10 18:45:00+00:00,437175,normalized_championship_prior,0.1452417661050149,Draw
+Ipswich Town FC,Watford FC,0,0,2023,2024-04-10 18:45:00+00:00,437176,normalized_championship_prior,0.1452417661050149,Draw
+Birmingham City FC,Coventry City FC,3,0,2023,2024-04-13 14:00:00+00:00,437179,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Queens Park Rangers FC,3,0,2023,2024-04-13 14:00:00+00:00,437183,normalized_championship_prior,0.1452417661050149,Home Win
+Ipswich Town FC,Middlesbrough FC,1,1,2023,2024-04-13 14:00:00+00:00,437184,normalized_championship_prior,0.1452417661050149,Draw
+Watford FC,Hull City AFC,0,0,2023,2024-04-20 14:00:00+00:00,437196,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Hull City AFC,2,3,2023,2024-04-24 18:45:00+00:00,437121,normalized_championship_prior,0.1452417661050149,Away Win
+Blackburn Rovers FC,Coventry City FC,0,0,2023,2024-04-27 14:00:00+00:00,437203,normalized_championship_prior,0.1452417661050149,Draw
+Hull City AFC,Ipswich Town FC,3,3,2023,2024-04-27 19:00:00+00:00,437210,normalized_championship_prior,0.1452417661050149,Draw
+Coventry City FC,Ipswich Town FC,1,2,2023,2024-04-30 19:00:00+00:00,437194,normalized_championship_prior,0.1452417661050149,Away Win
+Coventry City FC,Queens Park Rangers FC,1,2,2023,2024-05-04 11:30:00+00:00,437218,normalized_championship_prior,0.1452417661050149,Away Win
+Ipswich Town FC,Huddersfield Town AFC,2,0,2023,2024-05-04 11:30:00+00:00,437220,normalized_championship_prior,0.1452417661050149,Home Win
+Plymouth Argyle FC,Hull City AFC,1,0,2023,2024-05-04 11:30:00+00:00,437223,normalized_championship_prior,0.1452417661050149,Home Win
+Hull City AFC,Bristol City FC,1,1,2024,2024-08-10 11:30:00+00:00,500448,normalized_championship_prior,0.2489858847514541,Draw
+Stoke City FC,Coventry City FC,1,0,2024,2024-08-10 11:30:00+00:00,500454,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Oxford United FC,3,2,2024,2024-08-16 19:00:00+00:00,500459,normalized_championship_prior,0.2489858847514541,Home Win
+Plymouth Argyle FC,Hull City AFC,1,1,2024,2024-08-17 14:00:00+00:00,500462,normalized_championship_prior,0.2489858847514541,Draw
+Bristol City FC,Coventry City FC,1,1,2024,2024-08-24 11:30:00+00:00,500470,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,Millwall FC,0,0,2024,2024-08-24 11:30:00+00:00,500471,normalized_championship_prior,0.2489858847514541,Draw
+Coventry City FC,Norwich City FC,0,1,2024,2024-08-31 11:30:00+00:00,500483,normalized_championship_prior,0.2489858847514541,Away Win
+Leeds United FC,Hull City AFC,2,0,2024,2024-08-31 14:00:00+00:00,500485,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Sheffield United FC,0,2,2024,2024-09-13 19:00:00+00:00,500495,normalized_championship_prior,0.2489858847514541,Away Win
+Watford FC,Coventry City FC,1,1,2024,2024-09-14 14:00:00+00:00,500504,normalized_championship_prior,0.2489858847514541,Draw
+Stoke City FC,Hull City AFC,1,3,2024,2024-09-20 19:00:00+00:00,500514,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Swansea City AFC,1,2,2024,2024-09-21 14:00:00+00:00,500508,normalized_championship_prior,0.2489858847514541,Away Win
+Hull City AFC,Cardiff City FC,4,1,2024,2024-09-28 14:00:00+00:00,500519,normalized_championship_prior,0.2489858847514541,Home Win
+Leeds United FC,Coventry City FC,3,0,2024,2024-09-28 14:00:00+00:00,500520,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Blackburn Rovers FC,3,0,2024,2024-10-01 18:45:00+00:00,500531,normalized_championship_prior,0.2489858847514541,Home Win
+Queens Park Rangers FC,Hull City AFC,1,3,2024,2024-10-01 18:45:00+00:00,500533,normalized_championship_prior,0.2489858847514541,Away Win
+Norwich City FC,Hull City AFC,4,0,2024,2024-10-05 11:30:00+00:00,500545,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Sheffield Wednesday FC,1,2,2024,2024-10-05 14:00:00+00:00,500543,normalized_championship_prior,0.2489858847514541,Away Win
+Preston North End FC,Coventry City FC,1,0,2024,2024-10-19 11:30:00+00:00,500561,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Sunderland AFC,0,1,2024,2024-10-20 14:00:00+00:00,500555,normalized_championship_prior,0.2489858847514541,Away Win
+Queens Park Rangers FC,Coventry City FC,1,1,2024,2024-10-22 19:00:00+00:00,500570,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,Burnley FC,1,1,2024,2024-10-23 18:45:00+00:00,500566,normalized_championship_prior,0.2489858847514541,Draw
+Coventry City FC,Luton Town FC,3,2,2024,2024-10-26 11:30:00+00:00,500579,normalized_championship_prior,0.2489858847514541,Home Win
+Derby County FC,Hull City AFC,1,1,2024,2024-10-26 14:00:00+00:00,500580,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,Portsmouth FC,1,1,2024,2024-11-02 15:00:00+00:00,500591,normalized_championship_prior,0.2489858847514541,Draw
+Middlesbrough FC,Coventry City FC,0,3,2024,2024-11-02 15:00:00+00:00,500594,normalized_championship_prior,0.2489858847514541,Away Win
+Oxford United FC,Hull City AFC,1,0,2024,2024-11-05 19:45:00+00:00,500603,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Derby County FC,1,2,2024,2024-11-06 19:45:00+00:00,500610,normalized_championship_prior,0.2489858847514541,Away Win
+Sunderland AFC,Coventry City FC,2,2,2024,2024-11-09 15:00:00+00:00,500623,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,West Bromwich Albion FC,1,2,2024,2024-11-10 13:00:00+00:00,500616,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Sheffield United FC,2,2,2024,2024-11-23 12:30:00+00:00,500627,normalized_championship_prior,0.2489858847514541,Draw
+Luton Town FC,Hull City AFC,1,0,2024,2024-11-23 15:00:00+00:00,500628,normalized_championship_prior,0.2489858847514541,Home Win
+Burnley FC,Coventry City FC,2,0,2024,2024-11-26 19:45:00+00:00,500637,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Sheffield Wednesday FC,0,2,2024,2024-11-26 19:45:00+00:00,500638,normalized_championship_prior,0.2489858847514541,Away Win
+Middlesbrough FC,Hull City AFC,3,1,2024,2024-11-30 12:30:00+00:00,500653,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Cardiff City FC,2,2,2024,2024-11-30 15:00:00+00:00,500651,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,Blackburn Rovers FC,0,1,2024,2024-12-07 15:00:00+00:00,500663,normalized_championship_prior,0.2489858847514541,Away Win
+Millwall FC,Coventry City FC,0,1,2024,2024-12-07 15:00:00+00:00,500666,normalized_championship_prior,0.2489858847514541,Away Win
+Hull City AFC,Watford FC,1,1,2024,2024-12-11 19:45:00+00:00,500682,normalized_championship_prior,0.2489858847514541,Draw
+West Bromwich Albion FC,Coventry City FC,2,0,2024,2024-12-11 20:00:00+00:00,500684,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Hull City AFC,2,1,2024,2024-12-14 12:30:00+00:00,500687,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Swansea City AFC,2,1,2024,2024-12-21 12:30:00+00:00,500699,normalized_championship_prior,0.2489858847514541,Home Win
+Portsmouth FC,Coventry City FC,4,1,2024,2024-12-21 12:30:00+00:00,500704,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Plymouth Argyle FC,4,0,2024,2024-12-26 15:00:00+00:00,500711,normalized_championship_prior,0.2489858847514541,Home Win
+Preston North End FC,Hull City AFC,1,0,2024,2024-12-26 15:00:00+00:00,500716,normalized_championship_prior,0.2489858847514541,Home Win
+Blackburn Rovers FC,Hull City AFC,0,1,2024,2024-12-29 15:00:00+00:00,500721,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Millwall FC,0,0,2024,2024-12-29 15:00:00+00:00,500723,normalized_championship_prior,0.2489858847514541,Draw
+Cardiff City FC,Coventry City FC,1,1,2024,2025-01-01 15:00:00+00:00,500734,normalized_championship_prior,0.2489858847514541,Draw
+Hull City AFC,Middlesbrough FC,0,1,2024,2025-01-01 17:30:00+00:00,500735,normalized_championship_prior,0.2489858847514541,Away Win
+Hull City AFC,Leeds United FC,3,3,2024,2025-01-04 15:00:00+00:00,500747,normalized_championship_prior,0.2489858847514541,Draw
+Norwich City FC,Coventry City FC,2,1,2024,2025-01-04 15:00:00+00:00,500749,normalized_championship_prior,0.2489858847514541,Home Win
+Millwall FC,Hull City AFC,0,1,2024,2025-01-18 12:30:00+00:00,500763,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Bristol City FC,1,0,2024,2025-01-18 15:00:00+00:00,500759,normalized_championship_prior,0.2489858847514541,Home Win
+Blackburn Rovers FC,Coventry City FC,0,2,2024,2025-01-21 19:45:00+00:00,500769,normalized_championship_prior,0.2489858847514541,Away Win
+Hull City AFC,Queens Park Rangers FC,1,2,2024,2025-01-21 19:45:00+00:00,500771,normalized_championship_prior,0.2489858847514541,Away Win
+Sheffield United FC,Hull City AFC,0,3,2024,2025-01-24 20:00:00+00:00,500789,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Watford FC,2,1,2024,2025-01-25 15:00:00+00:00,500784,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Stoke City FC,1,2,2024,2025-02-01 15:00:00+00:00,500795,normalized_championship_prior,0.2489858847514541,Away Win
+Swansea City AFC,Coventry City FC,0,2,2024,2025-02-01 15:00:00+00:00,500803,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Leeds United FC,0,2,2024,2025-02-05 19:45:00+00:00,500808,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Queens Park Rangers FC,1,0,2024,2025-02-11 19:45:00+00:00,500818,normalized_championship_prior,0.2489858847514541,Home Win
+Burnley FC,Hull City AFC,2,0,2024,2025-02-12 19:45:00+00:00,500825,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Norwich City FC,1,1,2024,2025-02-15 15:00:00+00:00,500831,normalized_championship_prior,0.2489858847514541,Draw
+Sheffield Wednesday FC,Coventry City FC,1,2,2024,2025-02-15 15:00:00+00:00,500839,normalized_championship_prior,0.2489858847514541,Away Win
+Sunderland AFC,Hull City AFC,0,1,2024,2025-02-22 12:30:00+00:00,500849,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Preston North End FC,2,1,2024,2025-02-22 15:00:00+00:00,500843,normalized_championship_prior,0.2489858847514541,Home Win
+Cardiff City FC,Hull City AFC,1,0,2024,2025-02-25 19:45:00+00:00,500807,normalized_championship_prior,0.2489858847514541,Home Win
+Oxford United FC,Coventry City FC,2,3,2024,2025-03-01 12:30:00+00:00,500860,normalized_championship_prior,0.2489858847514541,Away Win
+Hull City AFC,Plymouth Argyle FC,2,0,2024,2025-03-04 19:45:00+00:00,500855,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Stoke City FC,3,2,2024,2025-03-08 12:30:00+00:00,500867,normalized_championship_prior,0.2489858847514541,Home Win
+Bristol City FC,Hull City AFC,1,1,2024,2025-03-08 15:00:00+00:00,500865,normalized_championship_prior,0.2489858847514541,Draw
+Derby County FC,Coventry City FC,2,0,2024,2025-03-11 19:45:00+00:00,500879,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Oxford United FC,2,1,2024,2025-03-12 19:45:00+00:00,500884,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Sunderland AFC,3,0,2024,2025-03-15 15:00:00+00:00,500891,normalized_championship_prior,0.2489858847514541,Home Win
+West Bromwich Albion FC,Hull City AFC,1,1,2024,2025-03-15 15:00:00+00:00,500900,normalized_championship_prior,0.2489858847514541,Draw
+Sheffield United FC,Coventry City FC,3,1,2024,2025-03-28 20:00:00+00:00,502144,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Luton Town FC,0,1,2024,2025-03-29 12:30:00+00:00,502140,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Burnley FC,1,2,2024,2025-04-05 11:30:00+00:00,500903,normalized_championship_prior,0.2489858847514541,Away Win
+Sheffield Wednesday FC,Hull City AFC,0,1,2024,2025-04-05 14:00:00+00:00,500910,normalized_championship_prior,0.2489858847514541,Away Win
+Watford FC,Hull City AFC,1,0,2024,2025-04-08 18:45:00+00:00,500920,normalized_championship_prior,0.2489858847514541,Home Win
+Coventry City FC,Portsmouth FC,1,0,2024,2025-04-09 19:00:00+00:00,500921,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Coventry City FC,1,1,2024,2025-04-14 19:00:00+00:00,500927,normalized_championship_prior,0.2489858847514541,Draw
+Coventry City FC,West Bromwich Albion FC,2,0,2024,2025-04-18 14:00:00+00:00,503529,normalized_championship_prior,0.2489858847514541,Home Win
+Swansea City AFC,Hull City AFC,1,0,2024,2025-04-18 14:00:00+00:00,503538,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Preston North End FC,2,1,2024,2025-04-21 14:00:00+00:00,500939,normalized_championship_prior,0.2489858847514541,Home Win
+Plymouth Argyle FC,Coventry City FC,3,1,2024,2025-04-21 14:00:00+00:00,500943,normalized_championship_prior,0.2489858847514541,Home Win
+Luton Town FC,Coventry City FC,1,0,2024,2025-04-26 11:30:00+00:00,500953,normalized_championship_prior,0.2489858847514541,Home Win
+Hull City AFC,Derby County FC,0,1,2024,2025-04-26 14:00:00+00:00,500951,normalized_championship_prior,0.2489858847514541,Away Win
+Coventry City FC,Middlesbrough FC,2,0,2024,2025-05-03 11:30:00+00:00,500963,normalized_championship_prior,0.2489858847514541,Home Win
+Portsmouth FC,Hull City AFC,1,1,2024,2025-05-03 11:30:00+00:00,500967,normalized_championship_prior,0.2489858847514541,Draw
+Coventry City FC,Sunderland AFC,1,2,2024,2025-05-09 19:00:00+00:00,536446,normalized_championship_prior,0.2489858847514541,Away Win
+Sunderland AFC,Coventry City FC,1,1,2024,2025-05-13 19:00:00+00:00,536448,normalized_championship_prior,0.2489858847514541,Draw
+Birmingham City FC,Ipswich Town FC,1,1,2025,2025-08-08 19:00:00+00:00,540712,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Hull City AFC,0,0,2025,2025-08-09 11:30:00+00:00,540714,normalized_championship_prior,0.4149764745857569,Draw
+Derby County FC,Coventry City FC,3,5,2025,2025-08-16 11:30:00+00:00,540726,normalized_championship_prior,0.4149764745857569,Away Win
+Ipswich Town FC,Southampton FC,1,1,2025,2025-08-17 11:00:00+00:00,540728,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Oxford United FC,3,2,2025,2025-08-17 14:00:00+00:00,540727,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Blackburn Rovers FC,0,3,2025,2025-08-23 11:30:00+00:00,540740,normalized_championship_prior,0.4149764745857569,Away Win
+Preston North End FC,Ipswich Town FC,1,0,2025,2025-08-23 14:00:00+00:00,540742,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Queens Park Rangers FC,7,1,2025,2025-08-23 14:00:00+00:00,540738,normalized_championship_prior,0.4149764745857569,Home Win
+Bristol City FC,Hull City AFC,4,2,2025,2025-08-30 14:00:00+00:00,540749,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Derby County FC,2,2,2025,2025-08-30 14:00:00+00:00,540750,normalized_championship_prior,0.4149764745857569,Draw
+Oxford United FC,Coventry City FC,2,2,2025,2025-08-30 14:00:00+00:00,540754,normalized_championship_prior,0.4149764745857569,Draw
+Ipswich Town FC,Sheffield United FC,5,0,2025,2025-09-12 19:00:00+00:00,540762,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Norwich City FC,1,1,2025,2025-09-13 14:00:00+00:00,540761,normalized_championship_prior,0.4149764745857569,Draw
+Swansea City AFC,Hull City AFC,2,2,2025,2025-09-13 14:00:00+00:00,540768,normalized_championship_prior,0.4149764745857569,Draw
+Leicester City FC,Coventry City FC,0,0,2025,2025-09-20 11:30:00+00:00,540777,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Southampton FC,3,1,2025,2025-09-20 14:00:00+00:00,540776,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Birmingham City FC,3,0,2025,2025-09-27 11:30:00+00:00,540785,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Portsmouth FC,2,1,2025,2025-09-27 14:00:00+00:00,540786,normalized_championship_prior,0.4149764745857569,Home Win
+Watford FC,Hull City AFC,2,1,2025,2025-09-27 14:00:00+00:00,540793,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Preston North End FC,2,2,2025,2025-09-30 18:45:00+00:00,540800,normalized_championship_prior,0.4149764745857569,Draw
+Bristol City FC,Ipswich Town FC,1,1,2025,2025-09-30 18:45:00+00:00,540798,normalized_championship_prior,0.4149764745857569,Draw
+Millwall FC,Coventry City FC,0,4,2025,2025-10-01 18:45:00+00:00,540804,normalized_championship_prior,0.4149764745857569,Away Win
+Hull City AFC,Sheffield United FC,1,0,2025,2025-10-04 11:30:00+00:00,540811,normalized_championship_prior,0.4149764745857569,Home Win
+Sheffield Wednesday FC,Coventry City FC,0,5,2025,2025-10-04 11:30:00+00:00,540816,normalized_championship_prior,0.4149764745857569,Away Win
+Ipswich Town FC,Norwich City FC,3,1,2025,2025-10-05 11:00:00+00:00,540812,normalized_championship_prior,0.4149764745857569,Home Win
+Middlesbrough FC,Ipswich Town FC,2,1,2025,2025-10-17 19:00:00+00:00,540824,normalized_championship_prior,0.4149764745857569,Home Win
+Birmingham City FC,Hull City AFC,2,3,2025,2025-10-18 14:00:00+00:00,540820,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Blackburn Rovers FC,2,0,2025,2025-10-18 14:00:00+00:00,540822,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Leicester City FC,2,1,2025,2025-10-21 18:45:00+00:00,540835,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Charlton Athletic FC,0,3,2025,2025-10-21 18:45:00+00:00,540836,normalized_championship_prior,0.4149764745857569,Away Win
+Portsmouth FC,Coventry City FC,1,2,2025,2025-10-21 18:45:00+00:00,540838,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Watford FC,3,1,2025,2025-10-25 11:30:00+00:00,540846,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,West Bromwich Albion FC,1,0,2025,2025-10-25 11:30:00+00:00,540849,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Charlton Athletic FC,1,1,2025,2025-10-25 14:00:00+00:00,540848,normalized_championship_prior,0.4149764745857569,Draw
+Wrexham AFC,Coventry City FC,3,2,2025,2025-10-31 20:00:00+00:00,540867,normalized_championship_prior,0.4149764745857569,Home Win
+Norwich City FC,Hull City AFC,0,2,2025,2025-11-01 12:30:00+00:00,540859,normalized_championship_prior,0.4149764745857569,Away Win
+Queens Park Rangers FC,Ipswich Town FC,1,4,2025,2025-11-01 15:00:00+00:00,540861,normalized_championship_prior,0.4149764745857569,Away Win
+Derby County FC,Hull City AFC,2,1,2025,2025-11-04 19:45:00+00:00,540872,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Watford FC,1,1,2025,2025-11-04 19:45:00+00:00,540873,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Sheffield United FC,3,1,2025,2025-11-04 20:00:00+00:00,540871,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Portsmouth FC,3,2,2025,2025-11-08 12:30:00+00:00,540881,normalized_championship_prior,0.4149764745857569,Home Win
+Stoke City FC,Coventry City FC,0,1,2025,2025-11-08 15:00:00+00:00,540887,normalized_championship_prior,0.4149764745857569,Away Win
+Swansea City AFC,Ipswich Town FC,1,4,2025,2025-11-08 15:00:00+00:00,540888,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,West Bromwich Albion FC,3,2,2025,2025-11-22 12:30:00+00:00,540895,normalized_championship_prior,0.4149764745857569,Home Win
+Queens Park Rangers FC,Hull City AFC,3,2,2025,2025-11-22 15:00:00+00:00,540902,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Wrexham AFC,0,0,2025,2025-11-22 15:00:00+00:00,540897,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Ipswich Town FC,0,2,2025,2025-11-25 19:45:00+00:00,540904,normalized_championship_prior,0.4149764745857569,Away Win
+Middlesbrough FC,Coventry City FC,2,4,2025,2025-11-25 19:45:00+00:00,540905,normalized_championship_prior,0.4149764745857569,Away Win
+Oxford United FC,Ipswich Town FC,2,1,2025,2025-11-28 20:00:00+00:00,540922,normalized_championship_prior,0.4149764745857569,Home Win
+Stoke City FC,Hull City AFC,1,2,2025,2025-11-29 12:30:00+00:00,540925,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Charlton Athletic FC,3,1,2025,2025-11-29 15:00:00+00:00,540917,normalized_championship_prior,0.4149764745857569,Home Win
+Blackburn Rovers FC,Ipswich Town FC,1,1,2025,2025-12-02 19:45:00+00:00,540773,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Middlesbrough FC,1,4,2025,2025-12-05 20:15:00+00:00,540932,normalized_championship_prior,0.4149764745857569,Away Win
+Ipswich Town FC,Coventry City FC,3,0,2025,2025-12-06 15:00:00+00:00,540933,normalized_championship_prior,0.4149764745857569,Home Win
+Preston North End FC,Coventry City FC,1,1,2025,2025-12-09 19:45:00+00:00,540942,normalized_championship_prior,0.4149764745857569,Draw
+Ipswich Town FC,Stoke City FC,1,0,2025,2025-12-10 19:45:00+00:00,540951,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Wrexham AFC,2,0,2025,2025-12-10 20:00:00+00:00,540950,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Bristol City FC,1,0,2025,2025-12-13 15:00:00+00:00,540953,normalized_championship_prior,0.4149764745857569,Home Win
+Millwall FC,Hull City AFC,1,3,2025,2025-12-13 15:00:00+00:00,540956,normalized_championship_prior,0.4149764745857569,Away Win
+Leicester City FC,Ipswich Town FC,3,1,2025,2025-12-13 15:00:00+00:00,540954,normalized_championship_prior,0.4149764745857569,Home Win
+Southampton FC,Coventry City FC,1,1,2025,2025-12-20 12:30:00+00:00,540973,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,West Bromwich Albion FC,1,0,2025,2025-12-20 15:00:00+00:00,540968,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Sheffield Wednesday FC,3,1,2025,2025-12-20 15:00:00+00:00,540969,normalized_championship_prior,0.4149764745857569,Home Win
+Millwall FC,Ipswich Town FC,0,0,2025,2025-12-26 13:00:00+00:00,540980,normalized_championship_prior,0.4149764745857569,Draw
+Sheffield Wednesday FC,Hull City AFC,2,2,2025,2025-12-26 15:00:00+00:00,540984,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Swansea City AFC,1,0,2025,2025-12-26 15:00:00+00:00,540977,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Ipswich Town FC,0,2,2025,2025-12-29 18:00:00+00:00,540989,normalized_championship_prior,0.4149764745857569,Away Win
+Middlesbrough FC,Hull City AFC,0,1,2025,2025-12-29 19:45:00+00:00,540991,normalized_championship_prior,0.4149764745857569,Away Win
+Charlton Athletic FC,Coventry City FC,1,1,2025,2026-01-01 15:00:00+00:00,541002,normalized_championship_prior,0.4149764745857569,Draw
+Ipswich Town FC,Oxford United FC,2,1,2025,2026-01-01 15:00:00+00:00,541005,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Stoke City FC,0,1,2025,2026-01-01 15:00:00+00:00,541004,normalized_championship_prior,0.4149764745857569,Away Win
+Birmingham City FC,Coventry City FC,3,2,2025,2026-01-04 12:00:00+00:00,541012,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Leicester City FC,2,1,2025,2026-01-17 12:30:00+00:00,541025,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Blackburn Rovers FC,3,0,2025,2026-01-17 12:30:00+00:00,541026,normalized_championship_prior,0.4149764745857569,Home Win
+Southampton FC,Hull City AFC,1,2,2025,2026-01-17 15:00:00+00:00,541030,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Millwall FC,2,1,2025,2026-01-20 19:45:00+00:00,541036,normalized_championship_prior,0.4149764745857569,Home Win
+Preston North End FC,Hull City AFC,0,3,2025,2026-01-20 19:45:00+00:00,541039,normalized_championship_prior,0.4149764745857569,Away Win
+Ipswich Town FC,Bristol City FC,2,0,2025,2026-01-20 19:45:00+00:00,541037,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Swansea City AFC,2,1,2025,2026-01-24 15:00:00+00:00,541052,normalized_championship_prior,0.4149764745857569,Home Win
+Sheffield United FC,Ipswich Town FC,3,1,2025,2026-01-24 15:00:00+00:00,541059,normalized_championship_prior,0.4149764745857569,Home Win
+Norwich City FC,Coventry City FC,2,1,2025,2026-01-26 20:00:00+00:00,541056,normalized_championship_prior,0.4149764745857569,Home Win
+Blackburn Rovers FC,Hull City AFC,0,1,2025,2026-01-31 15:00:00+00:00,541060,normalized_championship_prior,0.4149764745857569,Away Win
+Queens Park Rangers FC,Coventry City FC,2,1,2025,2026-01-31 15:00:00+00:00,541068,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Preston North End FC,1,1,2025,2026-01-31 15:00:00+00:00,541062,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Watford FC,0,0,2025,2026-02-03 19:45:00+00:00,541016,normalized_championship_prior,0.4149764745857569,Draw
+Derby County FC,Ipswich Town FC,1,2,2025,2026-02-07 12:31:00+00:00,541075,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Oxford United FC,0,0,2025,2026-02-07 15:01:00+00:00,541074,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Bristol City FC,2,3,2025,2026-02-07 15:01:00+00:00,541076,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Middlesbrough FC,3,1,2025,2026-02-16 20:00:00+00:00,541087,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Queens Park Rangers FC,1,3,2025,2026-02-21 12:30:00+00:00,541097,normalized_championship_prior,0.4149764745857569,Away Win
+West Bromwich Albion FC,Coventry City FC,0,2,2025,2026-02-21 12:30:00+00:00,541106,normalized_championship_prior,0.4149764745857569,Away Win
+Wrexham AFC,Ipswich Town FC,5,3,2025,2026-02-21 15:00:00+00:00,541107,normalized_championship_prior,0.4149764745857569,Home Win
+Watford FC,Ipswich Town FC,0,2,2025,2026-02-24 19:45:00+00:00,541113,normalized_championship_prior,0.4149764745857569,Away Win
+Hull City AFC,Derby County FC,4,2,2025,2026-02-24 19:45:00+00:00,541108,normalized_championship_prior,0.4149764745857569,Home Win
+Sheffield United FC,Coventry City FC,1,2,2025,2026-02-25 19:45:00+00:00,541119,normalized_championship_prior,0.4149764745857569,Away Win
+Portsmouth FC,Hull City AFC,0,1,2025,2026-02-28 12:30:00+00:00,541128,normalized_championship_prior,0.4149764745857569,Away Win
+Coventry City FC,Stoke City FC,2,1,2025,2026-02-28 15:00:00+00:00,541123,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Swansea City AFC,3,0,2025,2026-02-28 15:00:00+00:00,541125,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Hull City AFC,1,0,2025,2026-03-03 19:45:00+00:00,541089,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Millwall FC,1,3,2025,2026-03-07 12:30:00+00:00,541136,normalized_championship_prior,0.4149764745857569,Away Win
+Bristol City FC,Coventry City FC,0,2,2025,2026-03-07 15:00:00+00:00,541133,normalized_championship_prior,0.4149764745857569,Away Win
+Ipswich Town FC,Leicester City FC,1,1,2025,2026-03-07 15:00:00+00:00,541137,normalized_championship_prior,0.4149764745857569,Draw
+Wrexham AFC,Hull City AFC,1,2,2025,2026-03-10 19:45:00+00:00,541151,normalized_championship_prior,0.4149764745857569,Away Win
+Stoke City FC,Ipswich Town FC,3,3,2025,2026-03-10 20:00:00+00:00,541150,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Preston North End FC,3,0,2025,2026-03-11 20:00:00+00:00,541152,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Southampton FC,1,2,2025,2026-03-14 12:30:00+00:00,541157,normalized_championship_prior,0.4149764745857569,Away Win
+Sheffield Wednesday FC,Ipswich Town FC,0,2,2025,2026-03-14 15:00:00+00:00,541164,normalized_championship_prior,0.4149764745857569,Away Win
+West Bromwich Albion FC,Hull City AFC,3,0,2025,2026-03-14 15:00:00+00:00,541166,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Millwall FC,1,1,2025,2026-03-21 12:30:00+00:00,541173,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Sheffield Wednesday FC,3,1,2025,2026-03-21 15:00:00+00:00,541172,normalized_championship_prior,0.4149764745857569,Home Win
+Swansea City AFC,Coventry City FC,0,3,2025,2026-03-21 17:15:00+00:00,541178,normalized_championship_prior,0.4149764745857569,Away Win
+Oxford United FC,Hull City AFC,1,1,2025,2026-04-03 14:00:00+00:00,541186,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Derby County FC,3,2,2025,2026-04-03 19:00:00+00:00,541182,normalized_championship_prior,0.4149764745857569,Home Win
+Ipswich Town FC,Birmingham City FC,2,1,2025,2026-04-06 14:00:00+00:00,541196,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Coventry City FC,0,0,2025,2026-04-06 19:00:00+00:00,541195,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Sheffield Wednesday FC,0,0,2025,2026-04-11 11:30:00+00:00,541206,normalized_championship_prior,0.4149764745857569,Draw
+Norwich City FC,Ipswich Town FC,0,2,2025,2026-04-11 11:30:00+00:00,541209,normalized_championship_prior,0.4149764745857569,Away Win
+Sheffield United FC,Hull City AFC,2,1,2025,2026-04-11 14:00:00+00:00,541212,normalized_championship_prior,0.4149764745857569,Home Win
+Portsmouth FC,Ipswich Town FC,2,0,2025,2026-04-14 19:00:00+00:00,541021,normalized_championship_prior,0.4149764745857569,Home Win
+Blackburn Rovers FC,Coventry City FC,1,1,2025,2026-04-17 19:00:00+00:00,541216,normalized_championship_prior,0.4149764745857569,Draw
+Hull City AFC,Birmingham City FC,1,1,2025,2026-04-18 14:00:00+00:00,541219,normalized_championship_prior,0.4149764745857569,Draw
+Ipswich Town FC,Middlesbrough FC,2,2,2025,2026-04-19 11:00:00+00:00,541220,normalized_championship_prior,0.4149764745857569,Draw
+Coventry City FC,Portsmouth FC,5,1,2025,2026-04-21 18:45:00+00:00,541228,normalized_championship_prior,0.4149764745857569,Home Win
+Leicester City FC,Hull City AFC,2,2,2025,2026-04-21 18:45:00+00:00,541238,normalized_championship_prior,0.4149764745857569,Draw
+Charlton Athletic FC,Ipswich Town FC,1,2,2025,2026-04-22 18:45:00+00:00,541237,normalized_championship_prior,0.4149764745857569,Away Win
+West Bromwich Albion FC,Ipswich Town FC,0,0,2025,2026-04-25 11:30:00+00:00,541251,normalized_championship_prior,0.4149764745857569,Draw
+Charlton Athletic FC,Hull City AFC,2,1,2025,2026-04-25 11:30:00+00:00,541241,normalized_championship_prior,0.4149764745857569,Home Win
+Coventry City FC,Wrexham AFC,3,1,2025,2026-04-26 11:00:00+00:00,541242,normalized_championship_prior,0.4149764745857569,Home Win
+Southampton FC,Ipswich Town FC,2,2,2025,2026-04-28 18:45:00+00:00,541189,normalized_championship_prior,0.4149764745857569,Draw
+Ipswich Town FC,Queens Park Rangers FC,3,0,2025,2026-05-02 11:30:00+00:00,541256,normalized_championship_prior,0.4149764745857569,Home Win
+Hull City AFC,Norwich City FC,2,1,2025,2026-05-02 11:30:00+00:00,541255,normalized_championship_prior,0.4149764745857569,Home Win
+Watford FC,Coventry City FC,0,4,2025,2026-05-02 11:30:00+00:00,541262,normalized_championship_prior,0.4149764745857569,Away Win
+Hull City AFC,Millwall FC,0,0,2025,2026-05-08 19:00:00+00:00,557841,normalized_championship_prior,0.4149764745857569,Draw
+Millwall FC,Hull City AFC,0,2,2025,2026-05-11 19:00:00+00:00,557839,normalized_championship_prior,0.4149764745857569,Away Win
+Hull City AFC,Middlesbrough FC,1,0,2025,2026-05-23 16:30:00+00:00,557983,normalized_championship_prior,0.4149764745857569,Home Win
+Arsenal FC,Coventry City FC,3,0,2026,2026-08-21 19:00:00+00:00,3e905cc4-23a7-4c51-9c14-b8e3eb55005f,real_premier_league,1.0,Home Win
+Hull City AFC,Manchester United FC,2,0,2026,2026-08-22 11:30:00+00:00,d96c34fd-15d3-4c12-923d-d4edfc2b379b,real_premier_league,1.0,Home Win
+Ipswich Town FC,Sunderland AFC,2,1,2026,2026-08-22 14:00:00+00:00,2ae5b725-6854-4f56-8b15-5fb1ddcf877a,real_premier_league,1.0,Home Win
+Nottingham Forest FC,Leeds United FC,0,1,2026,2026-08-22 14:00:00+00:00,a2bd115a-e84b-4972-8354-d5ca6a80d232,real_premier_league,1.0,Away Win
+Everton FC,Crystal Palace FC,2,0,2026,2026-08-22 14:00:00+00:00,6ec98134-76b0-4885-bd0f-821e4b23b7f5,real_premier_league,1.0,Home Win
+Brentford FC,Tottenham Hotspur FC,3,0,2026,2026-08-22 16:30:00+00:00,41edbe62-e299-4584-bdbe-cf583914eb14,real_premier_league,1.0,Home Win
+Manchester City FC,AFC Bournemouth,2,1,2026,2026-08-23 13:00:00+00:00,091f02bc-2abf-46b2-95fb-ad7b77d96115,real_premier_league,1.0,Home Win
+Brighton & Hove Albion FC,Aston Villa FC,4,0,2026,2026-08-23 13:00:00+00:00,1bc8ddb6-998d-429e-afc6-7cdd9bd8dfd3,real_premier_league,1.0,Home Win
+Newcastle United FC,Liverpool FC,2,2,2026,2026-08-23 15:30:00+00:00,aa777284-716d-4881-a537-6f7fb4d674d0,real_premier_league,1.0,Draw
+Fulham FC,Chelsea FC,2,3,2026,2026-08-24 19:00:00+00:00,a72785ef-82bc-4ebe-b123-585418c4c1b0,real_premier_league,1.0,Away Win
