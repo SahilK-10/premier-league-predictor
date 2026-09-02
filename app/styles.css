@@ -56,7 +56,9 @@
 }
 
 .history-panel {
-  padding: 24px 0 80px;
+  max-width: 1240px;
+  margin: auto;
+  padding: 24px 32px 80px;
 }
 
 .history-empty {
