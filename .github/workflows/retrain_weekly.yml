@@ -46,6 +46,9 @@ jobs:
         run: uv run python -m features.feature_engineering --start-season 2024 --end-season 2026
 
       - name: Retrain Dixon-Coles model
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: uv run python -m models.poisson_dixon_coles train --start-season 2024 --end-season 2026 --model-name 2024_2026
 
       - name: Commit updated data + model artifacts
