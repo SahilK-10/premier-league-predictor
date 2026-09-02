@@ -12,9 +12,13 @@ node_modules/
 # Generated artifacts / cached outputs
 *.json
 *.csv
-data/processed/*.csv
-models/artifacts/*.json
-models/artifacts/*.csv
+# EXCEPT the trained model files and processed data that need to ship with deployments
+!data/processed/dixon_coles_training_*.csv
+!data/processed/features_*.csv
+!models/artifacts/dixon_coles_*.json
+!models/artifacts/team_strengths_*.csv
+!models/artifacts/backtest_*.json
+!models/artifacts/backtest_*.csv
 __pycache__/
 *.pyc
 # Next.js type declarations
