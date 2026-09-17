@@ -19,6 +19,7 @@ Endpoints:
 
 from __future__ import annotations
 
+import math
 import json
 import logging
 import os
@@ -298,6 +299,24 @@ def refresh_model(model_name: str = Query(default=DEFAULT_MODEL_NAME)):
     }
 
 
+@app.post("/admin/refresh-history")
+def refresh_history():
+    """
+    Force recompute and persist accuracy history and all GW history files.
+    Called by the weekly retrain workflow after model retraining.
+    """
+    # Clear disk caches so they get rebuilt
+    for f in MODEL_DIR.glob("accuracy_history.json"):
+        f.unlink(missing_ok=True)
+    for f in MODEL_DIR.glob("history_gw*.json"):
+        f.unlink(missing_ok=True)
+
+    # Trigger background recompute
+    _warm_history_caches()
+
+    return {"status": "history refresh triggered (background)"}
+
+
 @app.get("/fixtures/current-gameweek")
 def current_gameweek_fixtures(season: int = Query(default=2026)):
     features = load_features(season)
@@ -349,36 +368,54 @@ def single_prediction(home_team: str, away_team: str, season: int = Query(defaul
 
 
 @app.get("/accuracy")
-def accuracy(season: int = Query(default=2025)):
-    summary_path = MODEL_DIR / f"backtest_summary_{season}.json"
+def accuracy(season: int = Query(default=2026)):
+    """Live overall accuracy across all completed fixtures."""
+    frame = load_combined_features()
+    completed = frame[
+        (frame["season_start_year"] == season) &
+        frame["home_goals"].notna() &
+        frame["away_goals"].notna()
+    ]
+    if completed.empty:
+        return {
+            "season": season,
+            "model_accuracy": None,
+            "model_log_loss": None,
+            "model_brier_score": None,
+            "bookmaker_accuracy": None,
+            "matches_evaluated": 0,
+        }
 
-    if not summary_path.exists():
-        raise HTTPException(
-            status_code=404,
-            detail=f"No backtest summary found for season {season}.",
-        )
-
-    with open(summary_path, "r") as f:
-        summary = json.load(f)
-
-    # BUGFIX: Load matches_evaluated count from backtest predictions CSV
-    matches_evaluated = None
-    predictions_path = MODEL_DIR / f"backtest_predictions_{season}.csv"
-    if predictions_path.exists():
+    model = get_model(season)
+    hits = 0
+    total = 0
+    log_loss_sum = 0.0
+    for _, row in completed.iterrows():
+        home_team = str(row["home_team"])
+        away_team = str(row["away_team"])
         try:
-            predictions_df = pd.read_csv(predictions_path)
-            matches_evaluated = len(predictions_df)
-        except Exception as e:
-            logger.warning("Could not load matches_evaluated from %s: %s", predictions_path, e)
+            pred = model.predict(home_team, away_team)
+        except Exception:
+            continue
+        actual_home = int(row["home_goals"])
+        actual_away = int(row["away_goals"])
+        pred_outcome = outcome_from_probs(pred.home_win_probability, pred.draw_probability, pred.away_win_probability)
+        actual_outcome = outcome_from_goals(actual_home, actual_away)
+        if pred_outcome == actual_outcome:
+            hits += 1
+        total += 1
+        p = max(pred.home_win_probability if pred_outcome == "HOME" else
+                pred.draw_probability if pred_outcome == "DRAW" else
+                pred.away_win_probability, 1e-12)
+        log_loss_sum += -math.log(p)
 
     return {
         "season": season,
-        "model_accuracy": summary.get("accuracy"),
-        "model_log_loss": summary.get("log_loss"),
-        "model_brier_score": summary.get("brier_score"),
-        # Bookmaker baseline isn't computed anywhere yet in this project.
+        "model_accuracy": round(hits / total, 4) if total else None,
+        "model_log_loss": round(log_loss_sum / total, 4) if total else None,
+        "model_brier_score": None,
         "bookmaker_accuracy": None,
-        "matches_evaluated": matches_evaluated,
+        "matches_evaluated": total,
     }
 
 
@@ -403,6 +440,218 @@ def accuracy(season: int = Query(default=2025)):
 COMBINED_FEATURES_FILE = "features_2024_2026.csv"
 CURRENT_SEASON_START_YEAR = 2026
 MIN_GAMEWEEK_FOR_HISTORY = 2  # skip GW1 — not enough prior signal to be a fair test
+
+# Persisted history artifacts
+ACCURACY_HISTORY_FILE = "accuracy_history.json"
+HISTORY_GW_FILE_PATTERN = "history_gw{}.json"
+
+
+def _history_cache_path(filename: str) -> Path:
+    return MODEL_DIR / filename
+
+
+def _load_accuracy_history_from_disk() -> list[dict] | None:
+    """Load precomputed accuracy history from JSON file."""
+    path = _history_cache_path(ACCURACY_HISTORY_FILE)
+    if not path.exists():
+        return None
+    try:
+        with open(path, "r") as f:
+            data = json.load(f)
+        return data.get("gameweeks", [])
+    except Exception as e:
+        logger.warning("Failed to load accuracy history cache: %s", e)
+        return None
+
+
+def _save_accuracy_history_to_disk(gameweeks: list[dict]) -> None:
+    """Persist computed accuracy history to JSON file."""
+    path = _history_cache_path(ACCURACY_HISTORY_FILE)
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump({"season": CURRENT_SEASON_START_YEAR, "gameweeks": gameweeks}, f, indent=2)
+        logger.info("Saved accuracy history cache to %s (%d GWs)", path, len(gameweeks))
+    except Exception as e:
+        logger.error("Failed to save accuracy history cache: %s", e)
+
+
+def _load_gw_history_from_disk(gameweek: int) -> dict | None:
+    """Load precomputed single GW history from JSON file."""
+    path = _history_cache_path(HISTORY_GW_FILE_PATTERN.format(gameweek))
+    if not path.exists():
+        return None
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except Exception as e:
+        logger.warning("Failed to load GW%d history cache: %s", gameweek, e)
+        return None
+
+
+def _save_gw_history_to_disk(gameweek: int, data: dict) -> None:
+    """Persist computed single GW history to JSON file."""
+    path = _history_cache_path(HISTORY_GW_FILE_PATTERN.format(gameweek))
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2)
+        logger.info("Saved GW%d history cache to %s", gameweek, path)
+    except Exception as e:
+        logger.error("Failed to save GW%d history cache: %s", gameweek, e)
+
+
+def _warm_history_caches() -> None:
+    """Pre-compute and persist history for all completed gameweeks on startup.
+    Runs in background; doesn't block API readiness."""
+    import threading
+
+    def _do_warm():
+        try:
+            frame = load_combined_features()
+            available = completed_gameweeks(frame, CURRENT_SEASON_START_YEAR)
+            if not available:
+                return
+
+            # Accuracy history
+            cached_acc = _load_accuracy_history_from_disk()
+            if cached_acc is None:
+                history = []
+                for gameweek in available:
+                    model = get_leave_one_gameweek_out_model(gameweek)
+                    rows = frame[
+                        (frame["season_start_year"] == CURRENT_SEASON_START_YEAR) & (frame["gameweek"] == gameweek)
+                    ]
+                    outcome_hits = 0
+                    total = 0
+                    for _, row in rows.iterrows():
+                        home_team = str(row["home_team"])
+                        away_team = str(row["away_team"])
+                        actual_home_goals = int(row["home_goals"])
+                        actual_away_goals = int(row["away_goals"])
+                        prediction = model.predict(home_team, away_team)
+                        predicted_outcome = outcome_from_probs(
+                            prediction.home_win_probability,
+                            prediction.draw_probability,
+                            prediction.away_win_probability,
+                        )
+                        actual_outcome = outcome_from_goals(actual_home_goals, actual_away_goals)
+                        if predicted_outcome == actual_outcome:
+                            outcome_hits += 1
+                        total += 1
+                    accuracy_pct = round((outcome_hits / total * 100), 1) if total > 0 else 0
+                    history.append({
+                        "gameweek": gameweek,
+                        "accuracy": accuracy_pct,
+                        "correct": outcome_hits,
+                        "total": total,
+                        "predicted_fixtures": total,
+                        "results_in": total,
+                    })
+                _save_accuracy_history_to_disk(history)
+            else:
+                # Only compute any newly completed GWs
+                existing_gws = {p["gameweek"] for p in cached_acc}
+                missing = [gw for gw in available if gw not in existing_gws]
+                if missing:
+                    history = list(cached_acc)
+                    for gameweek in missing:
+                        model = get_leave_one_gameweek_out_model(gameweek)
+                        rows = frame[
+                            (frame["season_start_year"] == CURRENT_SEASON_START_YEAR) & (frame["gameweek"] == gameweek)
+                        ]
+                        outcome_hits = 0
+                        total = 0
+                        for _, row in rows.iterrows():
+                            home_team = str(row["home_team"])
+                            away_team = str(row["away_team"])
+                            actual_home_goals = int(row["home_goals"])
+                            actual_away_goals = int(row["away_goals"])
+                            prediction = model.predict(home_team, away_team)
+                            predicted_outcome = outcome_from_probs(
+                                prediction.home_win_probability,
+                                prediction.draw_probability,
+                                prediction.away_win_probability,
+                            )
+                            actual_outcome = outcome_from_goals(actual_home_goals, actual_away_goals)
+                            if predicted_outcome == actual_outcome:
+                                outcome_hits += 1
+                            total += 1
+                        accuracy_pct = round((outcome_hits / total * 100), 1) if total > 0 else 0
+                        history.append({
+                            "gameweek": gameweek,
+                            "accuracy": accuracy_pct,
+                            "correct": outcome_hits,
+                            "total": total,
+                            "predicted_fixtures": total,
+                            "results_in": total,
+                        })
+                    history.sort(key=lambda x: x["gameweek"])
+                    _save_accuracy_history_to_disk(history)
+
+            # Individual GW detail files
+            for gameweek in available:
+                cached = _load_gw_history_from_disk(gameweek)
+                if cached is None:
+                    # compute
+                    model = get_leave_one_gameweek_out_model(gameweek)
+                    rows = frame[
+                        (frame["season_start_year"] == CURRENT_SEASON_START_YEAR) & (frame["gameweek"] == gameweek)
+                    ]
+                    results = []
+                    for _, row in rows.iterrows():
+                        home_team = str(row["home_team"])
+                        away_team = str(row["away_team"])
+                        actual_home_goals = int(row["home_goals"])
+                        actual_away_goals = int(row["away_goals"])
+                        prediction = model.predict(home_team, away_team)
+                        predicted_outcome = outcome_from_probs(
+                            prediction.home_win_probability,
+                            prediction.draw_probability,
+                            prediction.away_win_probability,
+                        )
+                        actual_outcome = outcome_from_goals(actual_home_goals, actual_away_goals)
+                        outcome_correct = predicted_outcome == actual_outcome
+                        scoreline_correct = (
+                            prediction.most_likely_home_goals == actual_home_goals
+                            and prediction.most_likely_away_goals == actual_away_goals
+                        )
+                        results.append({
+                            "match_id": f"{CURRENT_SEASON_START_YEAR}-{gameweek}-{home_team}-{away_team}".replace(" ", "_"),
+                            "home_team": team_payload(home_team),
+                            "away_team": team_payload(away_team),
+                            "actual_home_goals": actual_home_goals,
+                            "actual_away_goals": actual_away_goals,
+                            "predicted_home_goals": prediction.most_likely_home_goals,
+                            "predicted_away_goals": prediction.most_likely_away_goals,
+                            "home_win_probability": round(prediction.home_win_probability, 4),
+                            "draw_probability": round(prediction.draw_probability, 4),
+                            "away_win_probability": round(prediction.away_win_probability, 4),
+                            "predicted_outcome": predicted_outcome,
+                            "actual_outcome": actual_outcome,
+                            "outcome_correct": outcome_correct,
+                            "scoreline_correct": scoreline_correct,
+                        })
+                    outcome_hits = sum(1 for r in results if r["outcome_correct"])
+                    scoreline_hits = sum(1 for r in results if r["scoreline_correct"])
+                    _save_gw_history_to_disk(gameweek, {
+                        "season": CURRENT_SEASON_START_YEAR,
+                        "gameweek": gameweek,
+                        "matches": results,
+                        "summary": {
+                            "total_matches": len(results),
+                            "outcome_correct": outcome_hits,
+                            "scoreline_correct": scoreline_hits,
+                            "outcome_accuracy": round(outcome_hits / len(results), 4) if results else None,
+                            "scoreline_accuracy": round(scoreline_hits / len(results), 4) if results else None,
+                        },
+                    })
+        except Exception as e:
+            logger.warning("History cache warm-up failed: %s", e)
+
+    # Fire and forget - don't block startup
+    t = threading.Thread(target=_do_warm, daemon=True)
+    t.start()
 
 
 @lru_cache(maxsize=1)
@@ -498,6 +747,12 @@ def outcome_from_probs(home_p: float, draw_p: float, away_p: float) -> str:
     return "DRAW"
 
 
+@app.on_event("startup")
+def _on_startup():
+    """Pre-compute history caches in background so History tab loads instantly."""
+    _warm_history_caches()
+
+
 @app.get("/history/gameweeks")
 def history_available_gameweeks(season: int = Query(default=CURRENT_SEASON_START_YEAR)):
     """
@@ -510,8 +765,13 @@ def history_available_gameweeks(season: int = Query(default=CURRENT_SEASON_START
 
 @app.get("/history/gameweek/{gameweek}")
 def history_gameweek(gameweek: int, season: int = Query(default=CURRENT_SEASON_START_YEAR)):
-    frame = load_combined_features()
+    # Read from persisted cache first (instant)
+    cached = _load_gw_history_from_disk(gameweek)
+    if cached is not None:
+        return cached
 
+    # Fallback: compute live (slower) and persist
+    frame = load_combined_features()
     available = completed_gameweeks(frame, season)
     if gameweek not in available:
         raise HTTPException(
@@ -521,7 +781,6 @@ def history_gameweek(gameweek: int, season: int = Query(default=CURRENT_SEASON_S
         )
 
     model = get_leave_one_gameweek_out_model(gameweek)
-
     rows = frame[
         (frame["season_start_year"] == season) & (frame["gameweek"] == gameweek)
     ]
@@ -567,8 +826,7 @@ def history_gameweek(gameweek: int, season: int = Query(default=CURRENT_SEASON_S
 
     outcome_hits = sum(1 for r in results if r["outcome_correct"])
     scoreline_hits = sum(1 for r in results if r["scoreline_correct"])
-
-    return {
+    result = {
         "season": season,
         "gameweek": gameweek,
         "matches": results,
@@ -580,28 +838,35 @@ def history_gameweek(gameweek: int, season: int = Query(default=CURRENT_SEASON_S
             "scoreline_accuracy": round(scoreline_hits / len(results), 4) if results else None,
         },
     }
+    _save_gw_history_to_disk(gameweek, result)
+    return result
 
 
 @app.get("/accuracy/history")
 def accuracy_history(season: int = Query(default=CURRENT_SEASON_START_YEAR)):
     """
     Returns per-gameweek accuracy progression for the accuracy-over-time chart.
-
     Each gameweek uses a leave-one-out model (trained without that gameweek's
     results) to ensure no hindsight bias.
 
-    Returns empty list early in a season when no gameweeks are complete yet.
+    Reads from persisted JSON file for instant response; computes any missing
+    gameweeks in the background on first call.
     """
+    cached = _load_accuracy_history_from_disk()
+    if cached is not None and len(cached) > 0:
+        return {"season": season, "gameweeks": cached}
+
+    # Fallback: compute live (slower) and persist
     frame = load_combined_features()
     available = completed_gameweeks(frame, season)
 
     if not available:
+        _save_accuracy_history_to_disk([])
         return {"season": season, "gameweeks": []}
 
     history = []
     for gameweek in available:
         model = get_leave_one_gameweek_out_model(gameweek)
-
         rows = frame[
             (frame["season_start_year"] == season) & (frame["gameweek"] == gameweek)
         ]
@@ -629,9 +894,6 @@ def accuracy_history(season: int = Query(default=CURRENT_SEASON_START_YEAR)):
             total += 1
 
         accuracy_pct = round((outcome_hits / total * 100), 1) if total > 0 else 0
-
-        # Sequential rolling accuracy: each GW's prediction is evaluated when
-        # results come in, and accumulated for the chart.
         history.append({
             "gameweek": gameweek,
             "accuracy": accuracy_pct,
@@ -641,4 +903,5 @@ def accuracy_history(season: int = Query(default=CURRENT_SEASON_START_YEAR)):
             "results_in": total,
         })
 
+    _save_accuracy_history_to_disk(history)
     return {"season": season, "gameweeks": history}
